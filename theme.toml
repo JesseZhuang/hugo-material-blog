@@ -1,0 +1,18 @@
+name = "Material Blog"
+license = "MIT"
+licenselink = "./LICENSE.md"
+description = "A material design theme for blogs."
+homepage = "https://jessezhuang.github.io"
+tags = ["material", "blog", "disqus", "responsive"]
+features = ["", ""]
+min_version = 0.15
+
+[author]
+  name = "Jesse Zhuang"
+  homepage = "https://jessezhuang.github.io"
+
+# If porting an existing theme
+[original]
+  name = "Digitalcraftsman"
+  homepage = "https://github.com/digitalcraftsman"
+  repo = "https://github.com/digitalcraftsman/hugo-material-docs"

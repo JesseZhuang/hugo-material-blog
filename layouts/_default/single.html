@@ -1,0 +1,83 @@
+{{ partial "head" . }}
+
+{{ if (eq (trim .Site.Params.provider " " | lower) "github") | and (isset .Site.Params "repo_url") }}
+	{{ $repo_id := replace .Site.Params.repo_url "https://github.com/" ""}}
+	{{ .Scratch.Set "repo_id" $repo_id }}
+{{ end }}
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	{{ partial "header" . }}
+</header>
+
+<main class="main">
+	<!-- left side bar with sections -->
+	<div class="drawer">
+		{{ partial "drawer" . }}
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>{{ .Title }} {{ if .IsDraft }} (Draft){{ end }}</h1>
+			<!-- date below title -->
+			<div>
+				{{ .Date.Format "Mon, Jan 2, 2006" }}
+				<!-- show tags and categories -->
+				{{ if isset .Params "categories" }}
+				{{ if not (eq (len .Params.categories) 0) }}
+				  {{ range .Params.categories }}
+				  Category: <a href="{{ $.Site.BaseURL }}categories/{{ . | urlize }}">{{ . }}</a>
+				  {{ end }}
+				{{ end }}
+				{{ end }}
+
+				{{ if isset .Params "tags" }}
+				{{ if not (eq (len .Params.tags) 0) }}
+					Tags:
+					{{ range .Params.tags }}
+					  <a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">[{{ . }}]</a>
+				  {{ end }}
+				{{ end }}
+				{{ end }}
+			</div>
+
+			{{ .Content }}
+
+			<aside class="copyright" role="note">
+				{{ with .Site.Params.copyright }}
+				&copy; {{ $.Now.Format "2006" }} {{ . }} &ndash;
+				{{ end }}
+				built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using a customized
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">
+					Material
+				</a> theme.
+			</aside>
+
+		  {{ partial "disqus.html" . }}
+
+			<footer class="footer">
+				{{ partial "footer" . }}
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+{{ partial "footer_js" . }}
