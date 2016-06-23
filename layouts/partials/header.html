@@ -11,9 +11,9 @@
       </div>
     </div>
 
-    {{ with .Site.RSSUri }}
+    {{ with .Site.RSSLink }}
     <div class="button button-twitter" role="button" aria-label="LinkeIn">
-      <a href="{{ .Site.BaseURL }}{{ . }}" title="RSS feed" target="_blank"><i class="fa fa-rss toggle-button icon" style="font-size:26px"></i></a>
+      <a href="{{ . }}" title="RSS feed" target="_blank"><i class="fa fa-rss toggle-button icon" style="font-size:26px"></i></a>
     </div>
     {{ end }}
 

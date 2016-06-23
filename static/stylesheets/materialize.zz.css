@@ -1,0 +1,231 @@
+/*grids*/
+.row {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.row .col {
+  float: left;
+  box-sizing: border-box;
+  padding: 0 0.75rem;
+}
+
+.row .col.s12 {
+  width: 100%;
+  margin-left: auto;
+  left: auto;
+  right: auto;
+}
+/*for device with a screen and window size at least 601px, only hides the style
+from older user agents (older browsers) */
+@media only screen and (min-width: 601px) {
+  .row .col.m1 {
+    width: 8.3333333333%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+  }
+  .row .col.m2 {
+    width: 16.6666666667%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+  }
+  .row .col.m3 {
+    width: 25%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+  }
+  .row .col.m4 {
+    width: 33.3333333333%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+  }
+  .row .col.m5 {
+    width: 41.6666666667%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+  }
+  .row .col.m6 {
+    width: 50%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+  }
+  .row .col.m7 {
+    width: 58.3333333333%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+  }
+  .row .col.m8 {
+    width: 66.6666666667%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+  }
+  .row .col.m9 {
+    width: 75%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+  }
+  .row .col.m10 {
+    width: 83.3333333333%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+  }
+  .row .col.m11 {
+    width: 91.6666666667%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+  }
+  .row .col.m12 {
+    width: 100%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+  }
+}
+
+/*deep orange #ff5722 http://materializecss.com/color.html*/
+.card {
+  position: relative;
+  margin: 0.5rem 0 1rem 0;
+  background-color: #ff5722;
+  transition: box-shadow .25s;
+  border-radius: 2px;
+}
+
+.card .card-title {
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.card .card-title.activator {
+  cursor: pointer;
+}
+
+.card.small, .card.medium, .card.large {
+  position: relative;
+}
+
+.card.small .card-image, .card.medium .card-image, .card.large .card-image {
+  max-height: 60%;
+  overflow: hidden;
+}
+
+.card.small .card-content, .card.medium .card-content, .card.large .card-content {
+  max-height: 40%;
+  overflow: hidden;
+}
+
+.card.small .card-action, .card.medium .card-action, .card.large .card-action {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.card.small {
+  height: 300px;
+}
+
+.card.medium {
+  height: 400px;
+}
+
+.card.large {
+  height: 500px;
+}
+
+.card .card-image {
+  position: relative;
+}
+
+.card .card-image img {
+  display: block;
+  border-radius: 2px 2px 0 0;
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.card .card-image .card-title {
+  color: #eeeeee;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 20px;
+}
+
+.card .card-content {
+  padding: 20px;
+  border-radius: 0 0 2px 2px;
+  color: #eeeeee;
+}
+
+.card .card-content p {
+  margin: 0;
+  color: #eeeeee;
+  /*color: inherit;*/
+}
+
+.card .card-content .card-title {
+  line-height: 48px;
+}
+
+.card .card-action {
+  position: relative;
+  background-color: inherit;
+  border-top: 1px solid rgba(160, 160, 160, 0.2);
+  padding: 20px;
+  z-index: 2;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-floating) {
+  color: #ffffff;
+  margin-right: 20px;
+  transition: color .3s ease;
+  text-transform: uppercase;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-floating):hover {
+  color: #0d47a1;
+}
+
+.card .card-action + .card-reveal {
+  z-index: 1;
+  padding-bottom: 64px;
+}
+
+.card .card-reveal {
+  padding: 20px;
+  position: absolute;
+  background-color: #ff5722;
+  width: 100%;
+  overflow-y: auto;
+  top: 100%;
+  height: 100%;
+  z-index: 3;
+  display: none;
+}
+
+.card .card-reveal .card-title {
+  cursor: pointer;
+  display: block;
+}

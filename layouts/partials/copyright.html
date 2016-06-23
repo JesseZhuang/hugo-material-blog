@@ -1,0 +1,11 @@
+<aside class="copyright" role="note">
+  {{ with .Site.Params.copyright }}
+  &copy; {{ $.Now.Format "2006" }} {{ . }} &ndash;
+  {{ end }}
+  built with
+  <a href="https://www.gohugo.io" target="_blank">Hugo</a>
+  using a customized
+  <a href="https://github.com/JesseZhuang/hugo-material-blog" target="_blank">
+    Material
+  </a> theme.
+</aside>

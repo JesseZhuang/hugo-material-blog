@@ -27,11 +27,16 @@
 
 			{{ range .Data.Pages }}
 				{{ if eq .Type "article" }}
-					<h1><a href="{{ .Permalink}}">{{ .Title }}
-						{{ if .IsDraft }} (Draft){{ end }}</a></h1>
-					{{ .Content }}
+					<a href="{{ .Permalink}}"><h1>{{ .Title }}{{ if .IsDraft }} (Draft){{ end }}</h1></a></span>
+					{{ with .Params.cover}}<img src="{{ . }}">{{ end }}
+					<p>{{ printf "%s" .Summary | markdownify }}</p>
+	        <hr>
 				{{ end }}
 			{{ end }}
+
+			<nav class="data button">
+				<a style="font-size:20px" href="{{ .Site.BaseURL }}article/">More...</a>
+			</nav>
 
 			{{ partial "copyright" .}}
 

@@ -1,14 +1,14 @@
 
 {{ partial "head" . }}
 
+<!-- <link rel="stylesheet" href="{{ .Site.BaseURL }}stylesheets/materialize.zz.css"> -->
+<!-- know issue https://github.com/spf13/hugo/issues/874 -->
+<link rel="stylesheet" href="../themes/hugo-material-blog/static/stylesheets/materialize.zz.css">
+
 {{ if (eq (trim .Site.Params.provider " " | lower) "github") | and (isset .Site.Params "repo_url") }}
 	{{ $repo_id := replace .Site.Params.repo_url "https://github.com/" ""}}
 	{{ .Scratch.Set "repo_id" $repo_id }}
 {{ end }}
-
-<link rel="stylesheet" href="{{ .Site.BaseURL }}stylesheets/materialize.zz.css">
-<!-- know issue https://github.com/spf13/hugo/issues/874 -->
-<!-- <link rel="stylesheet" href="../themes/hugo-material-blog/static/stylesheets/materialize.zz.css"> -->
 
 <div class="backdrop">
 	<div class="backdrop-paper"></div>
@@ -34,7 +34,7 @@
 	      <div class="card">
 	        <div class="card-content">
 	          <span class="card-title">Coding Automaton: oops 404</span>
-	          <p style="background-color:#ff5722">What brings you here? Let me know by commenting below and you are welcome to click the button below to checkout this site.</p>
+	          <p>What brings you here? Let me know by commenting below and you are welcome to click the button below to checkout this site.</p>
 	        </div>
 	        <div class="card-action">
 	          <a href="{{ $.Site.BaseURL }}">Homepage</a>
@@ -42,10 +42,28 @@
 	      </div>
 	    </div>
 	  </div>
-	</div>
-	{{ partial "disqus.html" . }}
-</article>
 
+		{{ partial "copyright" .}}
+
+		{{ partial "disqus.html" . }}
+
+		<footer class="footer">
+			{{ partial "footer" . }}
+		</footer>
+
+	</div>
+
+
+
+</article>
+<div class="results" role="status" aria-live="polite">
+	<div class="scrollable">
+		<div class="wrapper">
+			<div class="meta"></div>
+			<div class="list"></div>
+		</div>
+	</div>
+</div>
 
 
 </main>
