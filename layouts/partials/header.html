@@ -11,6 +11,12 @@
       </div>
     </div>
 
+    {{ with .Site.RSSUri }}
+    <div class="button button-twitter" role="button" aria-label="LinkeIn">
+      <a href="{{ .Site.BaseURL }}{{ . }}" title="RSS feed" target="_blank"><i class="fa fa-rss toggle-button icon" style="font-size:26px"></i></a>
+    </div>
+    {{ end }}
+
     {{ with .Site.Social.twitter }}
     <div class="button button-twitter" role="button" aria-label="Twitter">
        <a href="https://twitter.com/{{ . }}" title="@{{ . }} on Twitter" target="_blank" class="toggle-button icon icon-twitter"></a>
@@ -22,12 +28,18 @@
       <a href="https://github.com/{{ . }}" title="@{{ . }} on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
     </div>
     {{ end }}
-    
-    <!-- TODO: disabled until Hugo supports the generation of a content index natively 
+
+    {{ with .Site.Social.linkedin }}
+    <div class="button button-twitter" role="button" aria-label="LinkeIn">
+      <a href="https://linkedin.com/in/{{ . }}" title="@{{ . }} on LinkedIn" target="_blank"><i class="fa fa-linkedin toggle-button icon" style="font-size:26px"></i></a>
+    </div>
+    {{ end }}
+
+    <!-- TODO: disabled until Hugo supports the generation of a content index natively
     <div class="button button-search" role="button" aria-label="Search">
       <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
     </div>
-    -->    
+    -->
   </div>
   <div class="bar search">
     <div class="button button-close" role="button" aria-label="Close">

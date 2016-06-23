@@ -50,17 +50,7 @@
 
 			{{ .Content }}
 
-			<aside class="copyright" role="note">
-				{{ with .Site.Params.copyright }}
-				&copy; {{ $.Now.Format "2006" }} {{ . }} &ndash;
-				{{ end }}
-				built with
-				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
-				using a customized
-				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">
-					Material
-				</a> theme.
-			</aside>
+			{{ partial "copyright" .}}
 
 		  {{ partial "disqus.html" . }}
 

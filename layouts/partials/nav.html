@@ -4,16 +4,16 @@
 
 {{ $.Scratch.Set "currentMenuEntry" . }}
 <li>
-  {{ if .HasChildren }}
+  <!-- {{ if .HasChildren }}
     <span class="section">{{ .Name | title }}</span>
     <ul>
       {{ range .Children }}
         {{ $.Scratch.Set "currentMenuEntry" . }}
         {{ partial "nav_link" $currentNode }}
       {{ end }}
-    </ul>
-  {{ else }}
+    </ul> -->
+  <!-- {{ else }} -->
     {{ partial "nav_link" $currentNode }}
-  {{ end }}
+  <!-- {{ end }} -->
 </li>
 {{ end }}

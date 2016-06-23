@@ -48,12 +48,13 @@
 
     <link rel="stylesheet" href="{{ .Site.BaseURL }}stylesheets/application.css">
     <link rel="stylesheet" href="{{ .Site.BaseURL }}stylesheets/palettes.css">
-    <link rel="stylesheet" href="{{ .Site.BaseURL }}{{ with .Site.Params.highlight_css }}{{ . }}{{ else }}stylesheets/highlight/highlight.css{{ end }}">
+
+    <!-- <link rel="stylesheet" href="{{ .Site.BaseURL }}{{ with .Site.Params.highlight_css }}{{ . }}{{ else }}stylesheets/highlight/highlight.css{{ end }}"> -->
 
     {{/* set default values if no custom ones are defined */}}
     {{ $text := or .Site.Params.font.text "Roboto" }}
     {{ $code := or .Site.Params.font.code "Roboto Mono" }}
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family={{ $text }}:400,700|{{ replace  $code " " "+" }}">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family={{ $text }}:400,700|{{ replace  $code " " "+" }}">
     <style>
       body, input {
         font-family: '{{ $text }}', Helvetica, Arial, sans-serif;
@@ -62,7 +63,7 @@
         font-family: '{{ $code }}', 'Courier New', 'Courier', monospace;
       }
     </style>
-    
+
     {{ range .Site.Params.custom_css }}
     <link rel="stylesheet" href="{{ $.Site.BaseURL }}{{ . }}">
     {{ end }}
@@ -72,6 +73,9 @@
     <link href="{{ . }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
     <link href="{{ . }}" rel="feed" type="application/rss+xml" title="{{ $.Site.Title }}" />
     {{ end }}
+
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
 
   </head>
   <body class="{{ with .Site.Params.palette.primary }}palette-primary-{{ . }}{{end }} {{ with .Site.Params.palette.accent }}palette-accent-{{ .  }}{{ end }}">
