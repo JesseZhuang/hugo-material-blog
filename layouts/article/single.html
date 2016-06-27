@@ -18,27 +18,47 @@
 </header>
 
 <main class="main">
+	<!-- left side bar with sections -->
 	<div class="drawer">
 		{{ partial "drawer" . }}
 	</div>
 
 	<article class="article">
 		<div class="wrapper">
-
-			{{ range .Data.Pages }}
-				{{ if eq .Type "article" }}
-					<a href="{{ .Permalink}}"><h1>{{ .Title }}{{ if .IsDraft }} (Draft){{ end }}</h1></a></span>
-					{{ with .Params.cover}}<img src="{{ . }}">{{ end }}
-					<p>{{ printf "%s" .Summary | markdownify }}</p>
-	        <hr>
+			<h1>{{ .Title }} {{ if .IsDraft }} (Draft){{ end }}</h1>
+			<!-- date below title -->
+			<div>
+				{{ .Date.Format "Mon, Jan 2, 2006" }}
+				<!-- show tags and categories -->
+				{{ if isset .Params "categories" }}
+				{{ if not (eq (len .Params.categories) 0) }}
+				  {{ range .Params.categories }}
+				  Category: <a href="{{ $.Site.BaseURL }}categories/{{ . | urlize }}">{{ . }}</a>
+				  {{ end }}
 				{{ end }}
-			{{ end }}
+				{{ end }}
 
-			<nav class="data button">
-				<a style="font-size:20px" href="{{ .Site.BaseURL }}article/">More...</a>
-			</nav>
+				{{ if isset .Params "tags" }}
+				{{ if not (eq (len .Params.tags) 0) }}
+					Tags:
+					{{ range .Params.tags }}
+					  <a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">[{{ . }}]</a>
+				  {{ end }}
+				{{ end }}
+				{{ end }}
+			</div>
+
+      <!-- toc -->
+      <div id="toc">
+        <h2>Table of Contents</h2>
+        {{ .TableOfContents }}
+      </div>
+
+			{{ .Content }}
 
 			{{ partial "copyright" .}}
+
+		  {{ partial "disqus.html" . }}
 
 			<footer class="footer">
 				{{ partial "footer" . }}
