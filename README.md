@@ -6,7 +6,7 @@ A customized material design theme for [Hugo](https://gohugo.io). This is theme 
 
 ## Quick Start
 
-Visit the [demo](http://themes.gohugo.io/theme/material-docs/).
+Visit the [demo](http:/jessezhuang.github.io/)
 
 ## Acknowledgements
 

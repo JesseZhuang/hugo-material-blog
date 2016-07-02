@@ -29,6 +29,10 @@
 			<!-- date below title -->
 			<div>
 				{{ .Date.Format "Mon, Jan 2, 2006" }}
+				{{ if not (eq .Lastmod .Date) }}
+					Last Modified: {{ .Lastmod.Format "Jan 2, 2006" }}
+				{{ end }}
+				<br>
 				<!-- show tags and categories -->
 				{{ if isset .Params "categories" }}
 				{{ if not (eq (len .Params.categories) 0) }}
@@ -46,6 +50,8 @@
 				  {{ end }}
 				{{ end }}
 				{{ end }}
+
+
 			</div>
 
       <!-- toc -->

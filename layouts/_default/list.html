@@ -22,7 +22,7 @@
 		<div class="wrapper">
 			<h1>Pages in {{ .Title | singularize }}</h1>
 
-			{{ range .Data.Pages }}
+			{{ range first 10 .Data.Pages }}
 			<a href="{{ .Permalink }}" title="{{ .Title }}">
 				<h2>{{ .Title }}</h2>
 			</a>
