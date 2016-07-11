@@ -13,7 +13,7 @@
     <script src="{{ . | absURL }}"></script>
     {{ end }}
 
-    <script>
+    <!-- <script>
       {{ "/* Add headers to scrollspy */" | safeJS }}
       var headers   = document.getElementsByTagName("h2");
       var scrollspy = document.getElementById('scrollspy');
@@ -47,7 +47,7 @@
           a.innerHTML = {{ or .Site.Params.permalink "¶" }};
           headers[i].appendChild(a);
       }
-    </script>
+    </script> -->
 
     {{ with .Site.GoogleAnalytics }}
       <script>
@@ -82,6 +82,9 @@
         });
       </script>
     {{ end }}
+
+    <!-- highlighjs needed -->
+    <script>hljs.initHighlightingOnLoad();</script>
 
   </body>
 </html>
