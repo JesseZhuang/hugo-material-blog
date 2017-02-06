@@ -1,0 +1,73 @@
+baseurl = "https://example.org/"
+languageCode = "en-us"
+title = "Material Blog"
+theme = "hugo-material-blog"
+metadataformat = "yaml"
+canonifyurls = true
+# Enable Google Analytics by entering your tracking id
+googleAnalytics = ""
+# pygmentsuseclasses = false
+# PygmentsCodeFences = true
+# pygmentsstyle = "monokai"
+
+[params]
+	# General information
+	author = "Jesse Zhuang"
+	description = "A material design theme for hugo blogs."
+	copyright = "Zexi Jesse Zhuang"
+    DisqusShortname = ""
+
+	# Repository
+	provider = "github"
+	repo_url = "https://github.com/JesseZhuang/hugo-material-blog"
+
+	version = "1.0.0"
+	logo = "images/logo.jpg"
+	favicon = ""
+
+	permalink = "#"
+
+	# Custom assets
+	custom_css = []
+	custom_js  = ["https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/highlight.min.js"]
+
+	# Syntax highlighting theme
+	# highlight_css  = ""
+
+
+  [params.palette]
+    	primary = "deep-orange"
+    	accent  = "light-blue"
+
+  [params.font]
+    	text = "Ubuntu"
+    	code = "Ubuntu Mono"
+
+
+[social]
+	twitter = "zhzexi"
+	github  = "jessezhuang"
+  linkedin = ""
+
+
+[[menu.main]]
+	name   = "Homepage"
+	url    = "/"
+	weight = 0
+
+[[menu.main]]
+	name   = "About Me"
+	url    = "page/about-me"
+	weight = 10
+
+[[menu.main]]
+	name 	 = "RSS feed"
+	url    = "index.xml"
+	weight = 20
+
+
+[blackfriday]
+	smartypants	= true
+	fractions = true
+	smartDashes = true
+	plainIDAnchors = true
